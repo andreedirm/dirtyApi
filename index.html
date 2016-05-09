@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mashable API Test</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles/style.css">
+    <!-- endinject -->
+    <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+</head>
+
+<body>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <div ng-controller="speechControl as vm">
+        <h1>Speech Test</h1>
+        <input type="text" ng-model="vm.speechIn">
+        <button type="button" ng-click="vm.speak()">Go</button>
+        <button type="button" ng-click="vm.nextVoice()">Next Voice</button>
+        <table class="table table-hover table-striped">
+            <tbody>
+                <tr ng-repeat="message in vm.messageList">
+                    <td class="col-md-10">{{message.name}}</td>
+                    <td class="col-md-2">{{message.time}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p ng-repeat="message in vm.messageList">{{message.name}}</p>
+    </div>
+    <div ng-controller="transCtrl as vm">
+    <input type="text" ng-model="vm.trans"></input>
+    <button type="button" class="btn btn-default" ng-click="vm.translator()">button</button>
+
+    <p>{{vm.tranny.translatedText}}</p>
+
+
+    </div>
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <script src="/app/interceptor.js"></script>
+    <script src="/app/speechControl.js"></script>
+    <script src="/app/speechService.js"></script>
+    <script src="/app/texttranslate.controller.js"></script>
+    <script src="/app/translate.service.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
+<div class="container"></div>
